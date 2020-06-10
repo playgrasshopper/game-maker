@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "airtable": "^0.8.1",
+    "luxon": "^1.24.1",
     "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1"
