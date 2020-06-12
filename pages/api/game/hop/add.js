@@ -5,10 +5,13 @@ export default (req, res) => {
   Object.keys(req.body.playerHop).forEach((id) => {
     records.push({
       fields: {
-        'Hop #': 1,
         Game: [req.body.game],
         Player: [id],
+        'Hop #': req.body.hopNumber,
         Score: parseInt(req.body.playerHop[id].score, 10),
+        Beetlejuice: req.body.playerHop[id].juiced
+          ? [req.body.playerHop[id].juiced]
+          : null,
         Magic: req.body.playerHop[id].magic
           ? [req.body.playerHop[id].magic]
           : null,

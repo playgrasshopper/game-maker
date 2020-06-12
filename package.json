@@ -8,10 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "airtable": "^0.8.1",
+    "emotion": "^10.0.27",
     "luxon": "^1.24.1",
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-spinners": "^0.8.3",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-fairy-gates": "^0.16.19",
+    "typography-theme-lincoln": "^0.16.19"
   }
 }

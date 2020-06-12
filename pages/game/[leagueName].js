@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { DateTime } from 'luxon'
+import Layout from '../../components/layout'
+import NavList from '../../components/nav-list'
+import Button from '../../components/button'
+import Loader from '../../components/loader'
 
 export default function NewGame() {
   const [players, setPlayers] = useState(false)
@@ -19,34 +23,37 @@ export default function NewGame() {
       })
   }, [leagueName])
   return (
-    <div className="container">
-      {players && (
+    <Layout>
+      <h1>Select players</h1>
+      {players ? (
         <>
-          {players.map((player) => (
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={({ target }) => {
-                    if (target.checked) {
-                      if (selectedPlayers.indexOf(player.id) === -1) {
-                        selectedPlayers.push(player.id)
-                        setSelectedPlayers(selectedPlayers)
+          <NavList>
+            {players.map((player) => (
+              <li key={player.id}>
+                <label>
+                  <input
+                    type="checkbox"
+                    onChange={({ target }) => {
+                      if (target.checked) {
+                        if (selectedPlayers.indexOf(player.id) === -1) {
+                          selectedPlayers.push(player.id)
+                          setSelectedPlayers(selectedPlayers)
+                        }
+                      } else {
+                        if (selectedPlayers.indexOf(player.id) > -1) {
+                          setSelectedPlayers(
+                            selectedPlayers.filter((item) => item !== player.id)
+                          )
+                        }
                       }
-                    } else {
-                      if (selectedPlayers.indexOf(player.id) > -1) {
-                        setSelectedPlayers(
-                          selectedPlayers.filter((item) => item !== player.id)
-                        )
-                      }
-                    }
-                  }}
-                />{' '}
-                {player.name}
-              </label>
-            </div>
-          ))}
-          <button
+                    }}
+                  />{' '}
+                  {player.name}
+                </label>
+              </li>
+            ))}
+          </NavList>
+          <Button
             onClick={(event) => {
               event.preventDefault()
               fetch('/api/game/create', {
@@ -67,9 +74,11 @@ export default function NewGame() {
             }}
           >
             Start game
-          </button>
+          </Button>
         </>
+      ) : (
+        <Loader />
       )}
-    </div>
+    </Layout>
   )
 }

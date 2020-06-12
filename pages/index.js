@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import Head from 'next/head'
+import Layout from '../components/layout'
+import NavList from '../components/nav-list'
 import Link from 'next/link'
 
 export default function Home() {
@@ -10,19 +11,17 @@ export default function Home() {
       .then((result) => setLeagues(result))
   }, [])
   return (
-    <div className="container">
-      <Head>
-        <title>Grasshopper</title>
-      </Head>
+    <Layout>
+      <h1>Select a league</h1>
       {leagues && (
-        <ul>
+        <NavList>
           {leagues.map(({ id, name, slug }) => (
             <li key={id}>
               <Link href={`/game/${slug}`}>{name}</Link>
             </li>
           ))}
-        </ul>
+        </NavList>
       )}
-    </div>
+    </Layout>
   )
 }
