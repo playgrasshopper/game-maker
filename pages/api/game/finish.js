@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 const airtable = require('airtable')
 const base = airtable.base(process.env.AIRTABLE_BASE)
 export default (req, res) => {
