@@ -19,18 +19,22 @@ export default ({ children }) => (
 
       <link rel="manifest" href="/manifest.json" />
       <link
-        href="/favicon-16x16.png"
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
+        rel="apple-touch-icon"
+        sizes="192x192"
+        href="/icons/icon-192x192.png"
       />
       <link
-        href="/favicon-32x32.png"
         rel="icon"
         type="image/png"
         sizes="32x32"
+        href="/icons/icon-32x32.png"
       />
-      <link rel="apple-touch-icon" href="/apple-icon.png"></link>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/static/icons/favicon-16x16.png"
+      />
     </Head>
     <main>
       <Container>{children}</Container>
