@@ -190,7 +190,7 @@ const FinishGame = ({ game }) => {
         fetch(`/api/game/finish?game=${game}`)
           .then((response) => response.json())
           .then((result) => {
-            router.push(`/game/${game}`)
+            router.push(`/success`)
           })
       }}
     >

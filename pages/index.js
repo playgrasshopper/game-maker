@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import NavList from '../components/nav-list'
 import Link from 'next/link'
 
-export default function Home() {
+export default () => {
   const [leagues, setLeagues] = useState(false)
   useEffect(() => {
     fetch('/api/leagues')

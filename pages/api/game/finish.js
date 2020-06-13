@@ -17,9 +17,12 @@ export default (req, res) => {
         res.json({ error: true })
         return
       }
-      records.forEach(function (record) {
-        res.status(404)
-        res.json({ success: true })
+      res.status(404)
+      res.json({ success: true })
+      fetch(process.env.WEBSITE_BUILD, {
+        method: 'post',
+        body: '{}',
+        headers: { 'Content-Type': 'application/json' },
       })
     }
   )
