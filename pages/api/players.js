@@ -5,7 +5,7 @@ export default (req, res) => {
   base('Players')
     .select({
       sort: [{ field: 'Player Name' }],
-      filterByFormula: `({League} = "${req.query.league}")`,
+      filterByFormula: `(FIND("${req.query.league}", {League}))`,
     })
     .eachPage(
       (records, fetchNextPage) => {

@@ -17,7 +17,9 @@ export default () => {
         <NavList>
           {leagues.map(({ id, name, slug }) => (
             <li key={id}>
-              <Link href={`/game/${slug}`}>{name}</Link>
+              <Link href={`/game/${slug}`}>
+                <a>{name}</a>
+              </Link>
             </li>
           ))}
         </NavList>
